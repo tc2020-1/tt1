@@ -15,3 +15,23 @@ def click(event):
     webbrowser.open('http://www.fishc.com')
 
 
+text.tag_bind('link','<Enter>',show_hand_cursor)
+text.tag_bind('link','<Leave>',show_arrow_cursor)
+text.tag_bind('link','<Button-1>',click)
+
+mainloop()
+fd=tkinter.filedialog.askopenfilename()
+f=open(fd).read()
+f=f.lower()
+for i in ",.':":
+    f=f.replace(i,'')
+words=f.split()
+
+stwlist=[]
+r=open( 'stopwords.txt',encoding='utf-8').readlines()
+for i in r:
+    i=i.strip()
+    stwlist.append(i)
+
+
+
