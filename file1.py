@@ -35,3 +35,27 @@ for i in r:
 
 
 
+word_ = {}
+for word in words:
+    if word.strip() not in stwlist:
+        if len(word) > 1:
+            if word != '\t':
+                if word != '\r\n':
+                    #计算词频
+                    if word in word_:
+                        word_[word] += 1
+                    else:
+                        word_[word] = 1
+
+#将词汇和词频以元组的形式保存
+word_freq = []
+for word,freq in word_.items():
+    word_freq.append((word,freq))
+
+
+#进行降序排列
+word_freq.sort(key = lambda x:x[1],reverse = True)
+
+
+
+
