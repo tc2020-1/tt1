@@ -56,6 +56,35 @@ for word,freq in word_.items():
 #进行降序排列
 word_freq.sort(key = lambda x:x[1],reverse = True)
 
+#查看前200个结果
+for i in range(6):
+    word,freq =word_freq[i]
+    print('{0:10}{1:5}'.format(word,freq))
+
+
+textpad = Text(root,width=100,height=200)
+textpad.place(x=10,y=0)
+
+
+scrolly = Scrollbar(textpad,orient=VERTICAL)
+scrollx = Scrollbar(textpad,orient=HORIZONTAL)
+textpad.config(yscrollcommand= scrolly.set,xscrollcommand=scrollx.set)
+scrolly.config(command = textpad.yview)
+scrollx.config(command = textpad.xview)
+scrolly.pack(side=RIGHT,fill=Y)
+scrollx.pack(side=BOTTOM,fill=X)
+
+
+text=Text(root,width=100,height=100)
+text.place(x=10,y=280)
+
+sy = Scrollbar(text,orient=VERTICAL)
+sx = Scrollbar(text,orient=HORIZONTAL)
+text.config(yscrollcommand= sy.set,xscrollcommand=sx.set)
+sy.config(command = text.yview)
+sx.config(command = text.xview)
+sy.pack(side=RIGHT,fill=Y)
+sx.pack(side=BOTTOM,fill=X)
 
 
 
